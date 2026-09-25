@@ -291,7 +291,12 @@ export const credentials: Credential[] = [
     slug: "testdome-software-qa",
     url: "https://www.testdome.com/certificates/f8781912bc884d1d99181c268a1d1f25",
   },
-  { issuer: "TestDome", title: "Web Testing", slug: "testdome-web-testing" },
+  {
+    issuer: "TestDome",
+    title: "Web Testing",
+    slug: "testdome-web-testing",
+    url: "https://www.testdome.com/certificates/03c567c26db04e5b84a67899a51a40ed",
+  },
   { issuer: "TestMu AI", title: "Selenium Java 101", slug: "testmu-selenium-java-101" },
   { issuer: "SkillCertify", title: "JavaScript Professional", slug: "skillcertify-javascript-professional" },
   { issuer: "Forage", title: "Blackbird Software Engineering Job Simulation", slug: "forage-blackbird-job-simulation" },
