@@ -46,82 +46,98 @@ export default function Navbar() {
     };
   }, [open]);
 
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth >= 768) setOpen(false);
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
   return (
-    <header
-      className={cn(
-        "sticky top-0 z-50 border-b transition-colors duration-300",
-        scrolled
-          ? "border-line bg-paper/90 backdrop-blur-sm"
-          : "border-transparent bg-paper/0"
-      )}
-    >
-      <nav className="section-container flex h-16 items-center justify-between">
-        <Link
-          href="#top"
-          className="font-display text-lg text-ink"
-          aria-label={`${profile.name}, Home`}
-        >
-          Ketty Nerita
-        </Link>
+    <>
+      <header
+        className={cn(
+          "sticky top-0 z-50 border-b transition-colors duration-300",
+          scrolled
+            ? "border-line bg-paper/90 backdrop-blur-sm"
+            : "border-transparent bg-paper/0"
+        )}
+      >
+        <nav className="section-container flex h-16 items-center justify-between">
+          <Link
+            href="#top"
+            className="font-display text-lg text-ink"
+            aria-label={`${profile.name}, Home`}
+          >
+            Ketty Nerita
+          </Link>
 
-        <ul className="hidden items-center gap-7 md:flex">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                className={cn(
-                  "relative py-1 text-[13.5px] transition-colors",
-                  active === link.href ? "text-ink" : "text-ink-soft hover:text-ink"
-                )}
-              >
-                {link.label}
-                <span
+          <ul className="hidden items-center gap-7 md:flex">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
                   className={cn(
-                    "absolute -bottom-[1px] left-0 h-[1.5px] bg-gold transition-all duration-300",
-                    active === link.href ? "w-full" : "w-0"
+                    "relative py-1 text-[13.5px] transition-colors",
+                    active === link.href
+                      ? "text-ink"
+                      : "text-ink-soft hover:text-ink"
                   )}
-                />
-              </Link>
-            </li>
-          ))}
-        </ul>
+                >
+                  {link.label}
+                  <span
+                    className={cn(
+                      "absolute -bottom-[1px] left-0 h-[1.5px] bg-gold transition-all duration-300",
+                      active === link.href ? "w-full" : "w-0"
+                    )}
+                  />
+                </Link>
+              </li>
+            ))}
+          </ul>
 
-        <div className="hidden md:block">
-          <ResumeMenu variant="outline" />
-        </div>
-
-        <button
-          type="button"
-          className="flex h-9 w-9 items-center justify-center md:hidden"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-        >
-          <div className="relative h-4 w-5">
-            <span
-              className={cn(
-                "absolute left-0 h-[1.5px] w-5 bg-ink transition-all duration-300",
-                open ? "top-[7px] rotate-45" : "top-0"
-              )}
-            />
-            <span
-              className={cn(
-                "absolute left-0 top-[7px] h-[1.5px] w-5 bg-ink transition-opacity duration-200",
-                open ? "opacity-0" : "opacity-100"
-              )}
-            />
-            <span
-              className={cn(
-                "absolute left-0 h-[1.5px] w-5 bg-ink transition-all duration-300",
-                open ? "top-[7px] -rotate-45" : "top-[14px]"
-              )}
-            />
+          <div className="hidden md:block">
+            <ResumeMenu variant="outline" />
           </div>
-        </button>
-      </nav>
+
+          <button
+            type="button"
+            className="flex h-9 w-9 items-center justify-center md:hidden"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            onClick={() => setOpen((v) => !v)}
+          >
+            <div className="relative h-4 w-5">
+              <span
+                className={cn(
+                  "absolute left-0 h-[1.5px] w-5 bg-ink transition-all duration-300",
+                  open ? "top-[7px] rotate-45" : "top-0"
+                )}
+              />
+              <span
+                className={cn(
+                  "absolute left-0 top-[7px] h-[1.5px] w-5 bg-ink transition-opacity duration-200",
+                  open ? "opacity-0" : "opacity-100"
+                )}
+              />
+              <span
+                className={cn(
+                  "absolute left-0 h-[1.5px] w-5 bg-ink transition-all duration-300",
+                  open ? "top-[7px] -rotate-45" : "top-[14px]"
+                )}
+              />
+            </div>
+          </button>
+        </nav>
+      </header>
 
       {open && (
-        <div className="fixed inset-x-0 top-16 bottom-0 z-40 overflow-y-auto bg-paper md:hidden">
+        <div
+          id="mobile-menu"
+          className="fixed inset-x-0 top-16 bottom-0 z-[60] overflow-y-auto bg-paper md:hidden"
+        >
           <ul className="section-container flex flex-col gap-1 py-6">
             {navLinks.map((link) => (
               <li key={link.href}>
@@ -135,7 +151,7 @@ export default function Navbar() {
               </li>
             ))}
             <li className="pt-6">
-              <p className="mb-2 font-mono text-[11px] uppercase tracking-wide text-ink-soft/70">
+              <p className="mb-2 font-mono text-[11px] uppercase tracking-wide text-ink-soft/75">
                 Download Resume
               </p>
               <div className="flex flex-col gap-2.5">
@@ -162,6 +178,6 @@ export default function Navbar() {
           </ul>
         </div>
       )}
-    </header>
+    </>
   );
 }
