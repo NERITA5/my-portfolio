@@ -9,7 +9,7 @@ export const profile = {
   location: "Edmonton, Alberta, Canada",
   email: "kettynerita@icloud.com",
   github: "https://github.com/NERITA5",
-  linkedin: "https://www.linkedin.com/in/ngwinkem-ketty-nerita-73417b367",
+  linkedin: "https://www.linkedin.com/in/ketty-nerita-73417b367",
   resumeDevPath: "/resume-developer.pdf",
   resumeQaPath: "/resume-qa.pdf",
   image: "/images/profile/headshot.jpeg",
@@ -226,13 +226,28 @@ export const qaCategories = [
 export const experience = [
   {
     company: "LoopTechnology",
-    role: "Software Development Intern",
-    period: "January 2025 to March 2026",
-    tech: ["Next.js", "NestJS", "TypeScript", "Prisma", "PostgreSQL"],
+    role: "Software Developer",
+    period: "January 2024 to January 2026",
+    tech: ["React", "Next.js", "TypeScript", "NestJS", "Java", "Spring Boot", "PostgreSQL", "Supabase", "Flutter", "Selenium"],
     points: [
-      "Contributed to full-stack feature development using Next.js on the frontend and NestJS on the backend.",
-      "Worked with Prisma and PostgreSQL to design and query the application's data layer.",
-      "Built the RSVP Event Management System as a core project during the internship, handling both frontend and backend implementation.",
+      "Designed, developed, tested, and maintained full-stack web applications and backend services across the complete software lifecycle.",
+      "Built responsive applications and RESTful APIs using React, Next.js, TypeScript, NestJS, Java, Spring Boot, and Python.",
+      "Managed relational data and backend integrations using PostgreSQL, SQL, and Supabase.",
+      "Developed cross-platform functionality with Flutter and Dart, and deployed services using Railway and cloud environments.",
+      "Performed manual, regression, API, and database testing, including writing Selenium with Java automated test scripts.",
+    ],
+  },
+  {
+    company: "LoopTechnology",
+    role: "Software Development Intern",
+    period: "January 2023 to January 2024",
+    tech: ["JavaScript", "TypeScript", "React", "Next.js", "Java", "Spring Boot", "NestJS", "PostgreSQL", "Docker", "Jenkins"],
+    points: [
+      "Contributed to full-stack feature development across frontend, backend, REST APIs, and database layers.",
+      "Developed application features using JavaScript, TypeScript, React, Next.js, Java, Spring Boot, and NestJS.",
+      "Managed relational data using PostgreSQL, SQL, and backend service integration.",
+      "Gained hands-on experience with containerization workflows using Docker and Kubernetes, and CI/CD pipelines with Jenkins.",
+      "Collaborated in an Agile environment on debugging, troubleshooting, testing, and feature delivery.",
     ],
   },
 ];
@@ -243,7 +258,7 @@ export const education = {
   school: "University of Buea",
   degree: "Bachelor of Engineering (B.Eng.) in Computer Engineering",
   period: "2022 to 2026",
-  gpa: "3.55",
+  gpa: "3.6",
   languages: ["English", "French"],
   dissertation: {
     title: "CertiVERIFY: Decentralized Academic Certificate Verification System",
@@ -262,10 +277,10 @@ export const galleryImages = [
 export const skillGroups = [
   { title: "Software Development", skills: ["JavaScript", "TypeScript", "Python", "Java", "HTML", "CSS"] },
   { title: "Frontend", skills: ["React", "Next.js", "Tailwind CSS"] },
-  { title: "Backend", skills: ["Node.js", "NestJS", "REST APIs"] },
-  { title: "Databases", skills: ["PostgreSQL", "Prisma"] },
+  { title: "Backend", skills: ["Node.js", "NestJS", "Spring Boot", "REST APIs"] },
+  { title: "Databases", skills: ["PostgreSQL", "Prisma", "Supabase"] },
   { title: "QA / Testing", skills: ["Manual Testing", "Functional Testing", "Regression Testing", "API Testing", "Database Testing", "Defect Reporting", "Selenium", "Java Test Automation"] },
-  { title: "DevOps / CI/CD", skills: ["Git", "GitHub", "CI/CD", "Automated Testing Pipelines"] },
+  { title: "DevOps / CI/CD", skills: ["Git", "GitHub", "Docker", "Kubernetes", "Jenkins", "CI/CD"] },
   { title: "Blockchain", skills: ["Solidity", "Ethereum", "Sepolia", "IPFS"] },
 ];
 
